@@ -1,0 +1,58 @@
+/**
+ * sass --watch src/style.scss assets/style.css --style compressed
+ */
+
+@import "variables";
+
+html {
+    min-height: 100vh;
+    background: linear-gradient(37deg, var(--background), var(--background-alt));
+}
+/* html[data-darkmode="false"] {
+    --copy_highlight:   var(--sky-blue-crayola);
+    --copy_content:     var(--dark-purple);
+    --copy_link:        var(--amaranth-pink);
+    --copy_link--hover: var(--brink-pink);
+    --background:       #fcfcfc;
+    --background-alt:   #f0f0f0;
+} */
+
+* {
+    transition: color 0.07s ease-in-out;
+}
+
+body {
+    color: var(--copy_content);
+
+    font-family: 'Roboto Slab', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+section {
+    max-width: 50em;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 10vw, 6rem);
+}
+
+.highlight {
+    color: var(--copy_highlight);
+}
+
+a {
+    color: var(--copy_link);
+
+    &:hover,
+    &:focus {
+        color: var(--copy_link--hover);
+    }
+}
