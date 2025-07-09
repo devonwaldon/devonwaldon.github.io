@@ -4,11 +4,20 @@
     --amaranth-pink: #f49cbbff;
     --sky-blue-crayola: #51e5ffff;
     --dark-purple: #271033ff;
+    --pistachio-green: #9cd08fff;
+    --slate-purple: #7067cfff;
 
-    --copy_highlight:   var(--sky-blue-crayola);
-    --copy_content:     white;
-    --copy_link:        var(--brink-pink);
+    // to try
+    --antique-white: #9cd08fff;
+    --mindaro-yellow: #dcf763ff;
+    --earth-yellow: #eeb868ff;
+    --saffron-yellow: #f9c22eff;
+
+    // set variables
+    --copy_highlight: var(--sky-blue-crayola);
+    --copy_content: white;
+    --copy_link: var(--brink-pink);
     --copy_link--hover: var(--amaranth-pink);
-    --background:       var(--dark-purple);
-    --background-alt:   hsl(279deg 52% 4%);
+    --background: var(--dark-purple);
+    --background-alt: hsl(279deg 52% 4%);
 }

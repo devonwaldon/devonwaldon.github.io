@@ -1,0 +1,18 @@
+node_modules/
+# Dependency directories
+dist/
+build/
+# OS generated files
+.DS_Store
+Thumbs.db
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Environment files
+.env
+.env.*
+# Compiled source maps
+*.map
+# Misc
+*.log
