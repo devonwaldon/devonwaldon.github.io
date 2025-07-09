@@ -2,57 +2,150 @@
  * sass --watch src/style.scss assets/style.css --style compressed
  */
 
-@import "variables";
-
-html {
-    min-height: 100vh;
-    background: linear-gradient(37deg, var(--background), var(--background-alt));
-}
-/* html[data-darkmode="false"] {
-    --copy_highlight:   var(--sky-blue-crayola);
-    --copy_content:     var(--dark-purple);
-    --copy_link:        var(--amaranth-pink);
-    --copy_link--hover: var(--brink-pink);
-    --background:       #fcfcfc;
-    --background-alt:   #f0f0f0;
-} */
-
-* {
-    transition: color 0.07s ease-in-out;
-}
-
-body {
-    color: var(--copy_content);
-
-    font-family: 'Roboto Slab', serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-}
-
-section {
-    max-width: 50em;
-    padding-left: 32px;
-    padding-right: 32px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-h1 {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 10vw, 6rem);
-}
+@import 'variables';
+@import 'globals';
+@import 'typography';
 
 .highlight {
     color: var(--copy_highlight);
 }
 
-a {
-    color: var(--copy_link);
+.grid-wrapper {
+    display: grid;
+    gap: 1rem;
+}
 
-    &:hover,
-    &:focus {
-        color: var(--copy_link--hover);
+.grid-element {
+    position: relative;
+
+    min-height: 4rem;
+    overflow: hidden;
+
+    border-radius: 1rem;
+
+    background: rgba(white, 0.05);
+
+    &.image {
+        img {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            border-radius: 1rem;
+            inset: 0;
+            object-fit: cover;
+        }
     }
+}
+
+.portfolio {
+    --copy_highlight: var(--pistachio-green);
+
+    .grid-wrapper {
+        grid-template-areas:
+            'f1 f1 f2 f2'
+            'f3 f3 f2 f2'
+            'f3 f3 f4 n3';
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .grid-element {
+        position: relative;
+
+        .content-wrapper {
+            display: flex;
+            position: relative;
+            z-index: 10;
+            flex-direction: column;
+            height: calc(100% - 2rem);
+            padding: 1rem;
+
+            .content-footer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-top: auto;
+                padding-top: 1rem;
+
+                a.primary-link {
+                    flex-shrink: 0;
+
+                    color: var(--copy_content);
+
+                    &::before {
+                        content: '';
+
+                        position: absolute;
+                        inset: 0;
+
+                        z-index: 10;
+                    }
+                }
+            }
+
+            ul.flex-list {
+                margin: 0;
+                gap: 0.5rem;
+            }
+        }
+
+        &:hover {
+            &::before {
+                opacity: 0.925;
+            }
+        }
+
+        &::before {
+            content: '';
+
+            position: absolute;
+            z-index: 5;
+
+            transition: opacity 0.07s ease-in-out;
+
+            opacity: 0.975;
+
+            background: var(--copy_link);
+            inset: 0;
+        }
+
+        &.stollery {
+            grid-area: f2;
+
+            &::before {
+                background: var(--slate-purple);
+            }
+        }
+
+        &.calibre {
+            grid-area: f3;
+
+            &::before {
+                background: var(--amaranth-pink);
+            }
+        }
+
+        &.elections-alberta {
+            grid-area: f1;
+
+            &::before {
+                background: var(--saffron-yellow);
+            }
+        }
+
+        &.caa {
+            grid-area: f4;
+
+            &::before {
+                background: var(--rusty-red);
+            }
+        }
+    }
+}
+
+section.connect {
+    --copy_highlight: var(--rusty-red);
 }
