@@ -47,9 +47,17 @@
         grid-template-areas:
             'f1 f1 f2 f2'
             'f3 f3 f2 f2'
-            'f3 f3 f4 n3';
+            'f3 f3 f4 f4';
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
+
+        @media screen and (min-width: 992px) {
+            grid-template-areas:
+                'f1 f1 f1 f2 f2 f2'
+                'f3 f3 f3 f2 f2 f2'
+                'f3 f3 f3 f4 f4 n3';
+            grid-template-columns: repeat(6, 1fr);
+        }
     }
 
     .grid-element {
